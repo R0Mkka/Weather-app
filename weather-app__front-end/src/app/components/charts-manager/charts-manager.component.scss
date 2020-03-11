@@ -1,0 +1,79 @@
+:host {
+  display: block;
+}
+
+.charts-manager {
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  display: flex;
+
+  &__chart {
+    margin-right: 30px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  margin-top: 30px;
+
+  &__place-picker {
+    flex-grow: 1;
+    margin-right: 20px;
+
+    &-label {
+      margin-right: 5px;
+    }
+
+    &-field {
+      padding: 10px 15px;
+      border: 1px solid var(--primary-1);
+      border-radius: 5px;
+    }
+
+    &-locate {
+      margin-left: 10px;
+    }
+  }
+
+  &__item {
+    cursor: pointer;
+    height: 30px;
+    min-width: 120px;
+    margin-right: 20px;
+    color: white;
+    background-color: var(--primary-1);
+    border: none;
+    border-radius: 10px;
+    user-select: none;
+    transition: .15s all ease-in-out;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      background-color: var(--primary-2);
+    }
+
+    &:disabled {
+      pointer-events: none;
+      background-color: gray;
+    }
+  }
+}
+
+.error-box {
+  margin-top: 5px;
+  color: red;
+  font-size: 13px;
+}

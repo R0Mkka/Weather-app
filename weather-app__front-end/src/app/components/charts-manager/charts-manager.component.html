@@ -1,0 +1,66 @@
+<div class="charts-manager">
+  <div class="container">
+    <app-temperature-chart
+      class="container__chart"
+      [isFreezed]="isFreezed"
+      [isContinued]="isContinued"
+      (requestError)="onRequestError()"
+      (weatherRequest)="doWeatherRequest()"
+    ></app-temperature-chart>
+
+    <app-humidity-chart
+      class="container__chart"
+      [isFreezed]="isFreezed"
+      [isContinued]="isContinued"
+      (requestError)="onRequestError()"
+      (weatherRequest)="doWeatherRequest()"
+    ></app-humidity-chart>
+  </div>
+
+  <div class="actions">
+    <div class="actions__place-picker">
+      <label
+        for="place-input"
+        class="actions__place-picker-label"
+      >
+        Enter your city, country and county code
+      </label>
+
+      <input
+        id="place-input"
+        class="actions__place-picker-field"
+        type="text"
+        placeholder="City,country,code"
+        [formControl]="placePickerField"
+      >
+
+      <button
+        class="actions__place-picker-locate actions__item"
+        [disabled]="placePickerField.invalid"
+        (click)="onLocate()"
+      >
+        Locate!
+      </button>
+
+      <div *ngIf="showError" class="error-box">
+        {{ errorText }}
+      </div>
+    </div>
+
+    <button
+      class="actions__item"
+      [disabled]="isFreezed"
+      (click)="onChartsFreeze()"
+    >
+      Freeze
+    </button>
+
+    <button
+      class="actions__item"
+      [disabled]="!isFreezed"
+      (click)="onChartsContinue()"
+    >
+      Continue
+    </button>
+  </div>
+</div>

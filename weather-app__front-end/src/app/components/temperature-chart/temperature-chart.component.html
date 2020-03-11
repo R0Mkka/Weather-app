@@ -1,0 +1,23 @@
+<div class="weather-chart">
+  <div class="header">
+    <div class="header__label">
+      Temperature in
+    </div>
+
+    <div class="header__city-name">
+      {{ cityName }}
+    </div>
+
+    (<div class="header__country-name">
+      {{ countryNameWithCode }}
+    </div>)
+
+    <div class="header__current-date">
+      {{ currentDate | date }}
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <svg id="temperature-chart"></svg>
+  </div>
+</div>
